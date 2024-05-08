@@ -27,7 +27,7 @@ function linerInfo() {
     var date = new Date();
 
     var hour = date.getHours();
-    if (hour == 0) hour = 24;\
+    if (hour == 0) hour = 24;
     var now = 60 * 60 * hour + 60 * date.getMinutes() + date.getSeconds();
 	
 	var file = 'weekday';
