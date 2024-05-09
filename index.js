@@ -19,7 +19,11 @@ function linerInfo() {
     var result = [];
     stns.forEach((e, i) => {
         result[i] = {
-            stn: e + ' (' + stns_ja[i] + ')',
+            stn: {
+                ko: e,
+                ja: stns_ja[i],
+                en: stns_en[i]
+            },
             up: [],
             dn: []
         };
@@ -30,17 +34,17 @@ function linerInfo() {
     var hour = date.getHours();
     if (hour == 0) hour = 24;
     var now = 60 * 60 * hour + 60 * date.getMinutes() + date.getSeconds();
-	
-	var file = 'weekday';
+    
+    var file = 'weekday';
     if (date.getDay() == 0 || date.getDay() == 6) file = 'weekend';
-	
+    
     var data = fs.readFileSync(file + '.json').toString();
     data = JSON.parse(data);
-	
+    
     for (var train in data) {
         var time = data[train];
         var terminal = data[train].at(-1).stn;
-		
+        
         // 운행중이지 않은 열차 필터링
         var tym = time[time.length - 1].time;
         if (tym == ':') tym = time[time.length - 2].time;
@@ -58,8 +62,8 @@ function linerInfo() {
         result[index][ud] = [{
             terminal: terminal
         }];
-	}
-	
+    }
+    
     return result;
 
     function getTrainLocation(time) {
