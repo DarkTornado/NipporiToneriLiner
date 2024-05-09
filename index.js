@@ -16,7 +16,7 @@ function linerInfo() {
     var stns_ja = ['日暮里', '西日暮里', '赤土小学校前', '熊野前', '足立小台', '扇大橋', '高野', '江北', '西新井大師西', '谷在家', '舎人公園', '舎人', '見沼代親水公園'];
     var stns_en = ['Nippori', 'Nishi-Nippori', 'Akado-shogakkomae', 'Kumanomae', 'Adachi-odai', 'Ogi-ohashi', 'Koya', 'Kohoku', 'Nishiaraidaishi-nishi', 'Yazaike', 'Toneri-koen', 'Toneri', 'Minumadai-shinsuikoen'];
 
-    var result = [];
+    var result = [], stas = {};
     stns.forEach((e, i) => {
         result[i] = {
             stn: {
@@ -26,6 +26,10 @@ function linerInfo() {
             },
             up: [],
             dn: []
+        };
+        stas[e] = {
+            ja: stns_ja[i],
+            en: stns_en[i]
         };
     });
 
@@ -60,7 +64,11 @@ function linerInfo() {
         var index = stns.indexOf(stn);
 
         result[index][ud] = [{
-            terminal: terminal
+            terminal: {
+                ko: terminal,
+                ja: stas[terminal].ja,
+                en: stas[terminal].en
+            }
         }];
     }
     
