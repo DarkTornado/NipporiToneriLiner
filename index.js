@@ -14,6 +14,7 @@ function linerInfo() {
     process.env.TZ = 'Asia/Seoul';
     var stns = ['닛포리', '니시닛포리', '아카도쇼갓코마에', '쿠마노마에', '아다치오다이', '오기오하시', '고야', '코호쿠', '니시아라이다이시니시', '야자이케', '토네리코엔', '토네리', '미누마다이신스이코엔'];
     var stns_ja = ['日暮里', '西日暮里', '赤土小学校前', '熊野前', '足立小台', '扇大橋', '高野', '江北', '西新井大師西', '谷在家', '舎人公園', '舎人', '見沼代親水公園'];
+    var stns_en = ['Nippori', 'Nishi-Nippori', 'Akado-shōgakkōmae', 'Kumanomae', 'Adachi-odai', 'Ōgi-ōhashi', 'Kōya', 'Kōhoku', 'Nishiaraidaishi-nishi', 'Yazaike', 'Toneri-kōen', 'Toneri', 'Minumadai-shinsuikōen'];
 
     var result = [];
     stns.forEach((e, i) => {
